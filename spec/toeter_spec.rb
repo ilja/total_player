@@ -30,7 +30,7 @@ describe "mpd dingen" do
     rocksub = mpd.files(parent)[:directory]
     # binding.pry
     tree2 = Set.new
-    dir2 = to_tree2(rocksub, tree2, parent)
+    dir2 = parse_filesystem_tree(rocksub, tree2, parent)
 
     tree2.each do |d|
       puts d.name
@@ -50,7 +50,7 @@ def to_tree(directories, tree)
   tree
 end
 
-def to_tree2(directories, tree, parent)
+def parse_filesystem_tree(directories, tree, parent)
   Array(directories).each do |dir|
     p = "#{parent}"
     dir.slice!(p)

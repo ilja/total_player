@@ -21,30 +21,16 @@ class Directory
 
   def change_directory
     @files = mpd { |mpd| mpd_files(@path) }
-
-
   end
 
-  def root
-    #change_directory
-    #@files = @files[:directory]
-    #
-    #tree = Hash.new
-    #to_tree2(@files, tree, '')
-    #
-    ##puts tree.size
-    #
-    #@files = tree
-  end
-
-  def to_tree2(directories, tree, current_directory)
+  def parse_filesystem_tree(directories, current_directory)
+    tree = Hash.new
 
     Array(directories).each do |dir|
 
       if dir.include? '/'
         unless current_directory.blank?
           p = "#{current_directory}/"
-          puts "current: #{p} dir: #{dir}"
 
           if dir == current_directory
             parent = dir.rpartition('/')[0]
@@ -76,42 +62,22 @@ class Directory
       if child_dir
         tree[child_dir.name] = child_dir unless tree.has_key?(child_dir.name)
       else
-        puts "geen childdir voor: #{dir}"
       end
     end
 
-  end
-
-  def ls
-    @files
+    tree
 
   end
 
   def directories
-
-
-    tree = Hash.new
-    to_tree2(@files[:directory], tree, @path)
-
-    #@directories = tree
-
-    tree
-
+    parse_filesystem_tree(@files[:directory], @path)
   end
 
   def files
-
-
-    tree = Hash.new
-    to_tree2(@files[:file], tree, @path)
-
-    #@files = tree
-
-    tree
+    parse_filesystem_tree(@files[:file], @path)
   end
 
   def content
-#binding.pry
     a = directories.merge files
     a.collect { |k, v| v }
   end
