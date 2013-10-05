@@ -23,6 +23,10 @@ class Player
     new().paused?
   end
 
+  def self.play_now(position)
+    new().play_now(position)
+  end
+
   def current_song
     mpd { |mpd| mpd_get_current_song }
   end
@@ -42,6 +46,10 @@ class Player
 
   def paused?
     mpd { |mpd| mpd_paused? }
+  end
+
+  def play_now(position)
+    mpd { |mpd| mpd_play_now(position) }
   end
 
   def mpd_get_current_song
@@ -71,6 +79,10 @@ class Player
 
   def mpd_previous
     @mpd.previous
+  end
+
+  def mpd_play_now(position)
+    @mpd.play(position)
   end
 
   def mpd(&block)

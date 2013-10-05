@@ -62,7 +62,6 @@ class MainController < ApplicationController
     redirect_to change_directory_path(path: params[:current_directory])
   end
 
-
   def next
     Player.next
 
@@ -71,6 +70,12 @@ class MainController < ApplicationController
 
   def previous
     Player.previous
+
+    redirect_to change_directory_path(path: params[:current_directory])
+  end
+
+  def play_now
+    Player.play_now(params[:position])
 
     redirect_to change_directory_path(path: params[:current_directory])
   end

@@ -55,6 +55,7 @@
           <tr>
             <td><%= song.artist %></td>
             <td><%= song.title %></td>
+            <td><%= link_to 'play now', play_now_path(position: song.pos, current_directory: @current_directory) %></td>
           </tr>
       <% end %>
     </table>

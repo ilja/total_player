@@ -11,8 +11,6 @@ class PlayQueue
     new().queue
   end
 
-
-
   def enqueue(path)
     mpd { |mpd| mpd_queue(path) }
   end
@@ -24,8 +22,6 @@ class PlayQueue
   def queue
     mpd { |mpd| mpd_get_queue }
   end
-
-
 
   def mpd_get_queue
     @mpd.queue

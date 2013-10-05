@@ -18,6 +18,8 @@ TotalPlayer::Application.routes.draw do
   get 'main/next' => 'main#next', as: :next
   get 'main/previous' => 'main#previous', as: :previous
 
+  get 'main/play_now' => 'main#play_now', as: :play_now
+
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
