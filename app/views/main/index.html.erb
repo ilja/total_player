@@ -1,0 +1,45 @@
+<div class="main">
+
+  <div>
+    Now playing:
+    <% if @current_song %>
+        <%= @current_song.artist %> - <%= @current_song.title %>
+    <% else %>
+        nothing.
+    <% end %>
+  </div>
+
+  <div class="file-browser">
+    <ul>
+      parent dir: <%= @parent %>
+      <br>
+      path: <%= @current_directory %>
+      <% @files.each do |file| %>
+          <%
+             if file.name == ".."
+               link_path = @parent
+             else
+               if file.parent.blank?
+                 link_path = "#{file.name}"
+               else
+                 link_path = "#{file.parent}/#{file.name}"
+               end
+             end
+          %>
+          <li><%= link_to file.name, change_directory_path(path: link_path) %></li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div class="playlist">
+    <table>
+      <% @queue.each do |song| %>
+          <tr>
+            <td><%= song.artist %></td>
+            <td><%= song.title %></td>
+          </tr>
+      <% end %>
+    </table>
+  </div>
+
+</div>
