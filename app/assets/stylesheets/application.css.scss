@@ -24,18 +24,51 @@ body {
   .main {
     @include fill-parent;
     $visual-grid: true;
-    background: lightblue;
+    //background: lightblue;
 
     .file-browser {
       @include span-columns(6);
-      background: red;
+      background: rgba(232, 244, 254, 0.80);
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      .file-manager-row {
+
+
+        td {
+          padding: 4px;
+          border-bottom: 1px solid #e5e5e5;
+          border-top: 1px solid #e5e5e5;
+        }
+      }
+
     }
     .playlist {
       @include span-columns(6);
-      background: green;
+      background: rgba(232, 244, 254, 0.80);
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+
+        .playlist-row {
+          td {
+            padding: 4px;
+            border-bottom: 1px solid #e5e5e5;
+            border-top: 1px solid #e5e5e5;
+          }
+        }
+      }
     }
   }
 
+}
+
+.btn {
+  @include button;
 }
 // section {
 //   @include outer-container;

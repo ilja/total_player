@@ -1,64 +1,13 @@
 <div class="main">
 
-  <div>
-    Now playing:
-    <% if @current_song %>
-        <%= @current_song.artist %> - <%= @current_song.title %>
-    <% else %>
-        nothing.
-    <% end %>
-
-    <hr>
-    <h2>
-    <%= link_to '|<', previous_path(current_directory: @current_directory) %>
-    <% if @paused %>
-        <%= link_to '>', play_pause_path(current_directory: @current_directory) %>
-        <% else %>
-        <%= link_to '||', play_pause_path(current_directory: @current_directory) %>
-        <% end %>
-
-    <%= link_to '>|', next_path(current_directory: @current_directory) %>
-    </h2>
-  </div>
+  <%= render :partial => 'player', :locals => { current_song: @current_song, paused: @paused, current_directory: @current_directory} %>
 
   <div class="file-browser">
-    <ul>
-      parent dir: <%= @parent %>
-      <br>
-      path: <%= @current_directory %>
-      <% @files.each do |file| %>
-          <%
-             if file.name == ".."
-               link_path = @parent
-             else
-               if file.parent.blank?
-                 link_path = "#{file.name}"
-               else
-                 link_path = "#{file.parent}/#{file.name}"
-               end
-             end
-          %>
-          <li>
-            <%= link_to file.name, change_directory_path(path: link_path) %>
-            <% if file.name != '..' %>
-            - <%= link_to 'add', add_to_playlist_path(path: link_path, current_directory: @current_directory) %>
-            <% end %>
-          </li>
-      <% end %>
-    </ul>
+    <%= render :partial => 'file_browser', :locals => { parent: @parent, current_directory: @current_directory, files: @files} %>
   </div>
 
   <div class="playlist">
-    <%= link_to 'clear', clear_playlist_path(current_directory: @current_directory) %>
-    <table>
-      <% @queue.each do |song| %>
-          <tr>
-            <td><%= song.artist %></td>
-            <td><%= song.title %></td>
-            <td><%= link_to 'play now', play_now_path(position: song.pos, current_directory: @current_directory) %></td>
-          </tr>
-      <% end %>
-    </table>
+    <%= render :partial => 'playlist', :locals => { queue: @queue, current_directory: @current_directory} %>
   </div>
 
 </div>

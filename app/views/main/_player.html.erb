@@ -1,0 +1,20 @@
+<div>
+  Now playing:
+  <% if @current_song %>
+      <%= @current_song.artist %> - <%= @current_song.title %>
+  <% else %>
+      nothing.
+  <% end %>
+
+  <hr>
+  <h2>
+    <%= link_to '|<', previous_path(current_directory: @current_directory), class: 'btn' %>
+    <% if @paused %>
+        <%= link_to '>', play_pause_path(current_directory: @current_directory), class: 'btn' %>
+    <% else %>
+        <%= link_to '||', play_pause_path(current_directory: @current_directory), class: 'btn' %>
+    <% end %>
+
+    <%= link_to '>|', next_path(current_directory: @current_directory), class: 'btn' %>
+  </h2>
+</div>
