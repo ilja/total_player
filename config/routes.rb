@@ -11,6 +11,12 @@ TotalPlayer::Application.routes.draw do
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
   get 'main/change_directory' => 'main#change_directory', as: :change_directory
+  get 'main/add_to_playlist' => 'main#add_to_playlist', as: :add_to_playlist
+  get 'main/clear_playlist' => 'main#clear_playlist', as: :clear_playlist
+
+  get 'main/play_pause' => 'main#play_pause', as: :play_pause
+  get 'main/next' => 'main#next', as: :next
+  get 'main/previous' => 'main#previous', as: :previous
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products

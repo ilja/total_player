@@ -7,6 +7,18 @@
     <% else %>
         nothing.
     <% end %>
+
+    <hr>
+    <h2>
+    <%= link_to '|<', previous_path(current_directory: @current_directory) %>
+    <% if @paused %>
+        <%= link_to '>', play_pause_path(current_directory: @current_directory) %>
+        <% else %>
+        <%= link_to '||', play_pause_path(current_directory: @current_directory) %>
+        <% end %>
+
+    <%= link_to '>|', next_path(current_directory: @current_directory) %>
+    </h2>
   </div>
 
   <div class="file-browser">
@@ -26,12 +38,18 @@
                end
              end
           %>
-          <li><%= link_to file.name, change_directory_path(path: link_path) %></li>
+          <li>
+            <%= link_to file.name, change_directory_path(path: link_path) %>
+            <% if file.name != '..' %>
+            - <%= link_to 'add', add_to_playlist_path(path: link_path, current_directory: @current_directory) %>
+            <% end %>
+          </li>
       <% end %>
     </ul>
   </div>
 
   <div class="playlist">
+    <%= link_to 'clear', clear_playlist_path(current_directory: @current_directory) %>
     <table>
       <% @queue.each do |song| %>
           <tr>
