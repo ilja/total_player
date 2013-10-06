@@ -28,8 +28,7 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'ruby-mpd'
-#gem 'rbtree'
-#gem 'rubytree'
+
 gem 'neat'
 gem 'font-awesome-rails'
 
@@ -41,7 +40,7 @@ group :doc do
 end
 
 group :development do
-  gem "better_errors"
+  gem 'better_errors'
   gem 'binding_of_caller'
 end
 
@@ -53,6 +52,8 @@ end
 group :development do
   gem 'guard-rspec'
 end
+
+gem 'puma'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
