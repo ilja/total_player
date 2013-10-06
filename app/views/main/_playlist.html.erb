@@ -1,10 +1,12 @@
-<%= link_to 'clear', clear_playlist_path(current_directory: @current_directory) %>
+<div class="controls">
+  <%= link_to 'clear', clear_playlist_path(current_directory: @current_directory) %>
+</div>
 <table>
   <% @queue.each do |song| %>
       <tr class="playlist-row">
-        <td><%= song.artist %></td>
-        <td><%= song.title %></td>
-        <td><%= link_to 'play now', play_now_path(position: song.pos, current_directory: @current_directory) %></td>
+        <td class="artist"><%= song.artist %></td>
+        <td class="title"><%= song.title %></td>
+        <td class="actions"><%= link_to 'play now', play_now_path(position: song.pos, current_directory: @current_directory) %></td>
       </tr>
   <% end %>
 </table>

@@ -7,14 +7,13 @@
   <% end %>
 
   <hr>
-  <h2>
-    <%= link_to '|<', previous_path(current_directory: @current_directory), class: 'btn' %>
+  <div class="play-controls">
+    <%= link_to(fa_icon('step-backward'), previous_path(current_directory: @current_directory), class: 'btn') %>
     <% if @paused %>
-        <%= link_to '>', play_pause_path(current_directory: @current_directory), class: 'btn' %>
+      <%= link_to(fa_icon('play'), play_pause_path(current_directory: @current_directory), class: 'btn') %>
     <% else %>
-        <%= link_to '||', play_pause_path(current_directory: @current_directory), class: 'btn' %>
+      <%= link_to(fa_icon('pause'), play_pause_path(current_directory: @current_directory), class: 'btn') %>
     <% end %>
-
-    <%= link_to '>|', next_path(current_directory: @current_directory), class: 'btn' %>
-  </h2>
+    <%= link_to(fa_icon('step-forward'), next_path(current_directory: @current_directory), class: 'btn') %>
+  </div>
 </div>

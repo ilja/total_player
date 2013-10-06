@@ -1,4 +1,6 @@
-path: <%= current_directory %>
+<div class="breadcrumbs">
+  path: <%= current_directory %>
+</div>
 <table>
   <tbody>
   <% files.each do |file| %>
@@ -14,13 +16,16 @@ path: <%= current_directory %>
          end
       %>
       <tr class="file-manager-row">
-        <td><%= image_tag 'folder.png' %></td>
-        <td>
+        <td class="icon">
+          <%= fa_icon "folder-close" %><%#= fa_icon 'file-text-alt' %></td>
+        <td class="filename">
           <%= link_to file.name, change_directory_path(path: link_path) %>
         </td>
-        <td>
+        <td class="actions">
           <% if file.name != '..' %>
+
             <%= link_to 'add', add_to_playlist_path(path: link_path, current_directory: current_directory) %>
+
           <% end %>
         </td>
       </tr>

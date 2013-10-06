@@ -31,6 +31,7 @@ gem 'ruby-mpd'
 #gem 'rbtree'
 #gem 'rubytree'
 gem 'neat'
+gem 'font-awesome-rails'
 
 gem 'rack-mini-profiler'
 

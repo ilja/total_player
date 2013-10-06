@@ -14,9 +14,34 @@
 
 @import "bourbon";
 @import "neat";
+@import "font-awesome";
+
+@import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
 body {
   $border-box-sizing: false;
+  background: white;
+  font-family: $helvetica;
+  //font-family: 'Source Sans Pro', sans-serif;
+  font-size: 15px;
+  color: #888;
+  //line-height: 18px;
+  hr {
+    border: none;
+    height: 1px;
+    background: #d0d0d0;
+  }
+}
+
+a {
+  text-decoration: none;
+  color: #80A6CD;
+}
+a:hover {
+  text-decoration: underline;
+}
+a:visited {
+  color: #80A6CD;
 }
 
 .container {
@@ -26,39 +51,81 @@ body {
     $visual-grid: true;
     //background: lightblue;
 
+    .play-controls {
+      padding: 2px 0 10px 0;
+      a { color: white; }
+      a:hover { text-decoration: none; }
+      .btn {
+        @include button(#80A6CD);
+      }
+    }
+
     .file-browser {
       @include span-columns(6);
-      background: rgba(232, 244, 254, 0.80);
+      background: #eee;
+      padding:3px;
+
+      .breadcrumbs {
+        padding: 2px 0 4px 0;
+      }
 
       table {
         border-collapse: collapse;
         width: 100%;
+        border: 1px solid #d0d0d0;
+        background: #f8f8f8;
       }
 
       .file-manager-row {
+        vertical-align: top;
 
+        .icon {
+          width: 10px;
+        }
+        .actions {
+          width: 30px;
+        }
+        .icon-folder-close {
+          color: #80A6CD;
+        }
 
         td {
-          padding: 4px;
-          border-bottom: 1px solid #e5e5e5;
-          border-top: 1px solid #e5e5e5;
+          padding: 6px;
+          border-bottom: 1px solid #D8D8D8;
+          border-top: 1px solid #D8D8D8;
+
         }
       }
-
     }
     .playlist {
       @include span-columns(6);
-      background: rgba(232, 244, 254, 0.80);
+      background: #eee;
+      padding:3px;
+
+      .controls {
+        padding: 2px 2px 4px 0;
+        float: right;
+      }
 
       table {
         border-collapse: collapse;
         width: 100%;
+        border: 1px solid #d0d0d0;
+        background: #f8f8f8;
 
         .playlist-row {
+          vertical-align: top;
+
+          .actions {
+            width: 72px;
+            white-space: nowrap;
+          }
+
           td {
-            padding: 4px;
-            border-bottom: 1px solid #e5e5e5;
-            border-top: 1px solid #e5e5e5;
+            padding: 6px;
+            border-bottom: 1px solid #D8D8D8;
+            border-top: 1px solid #D8D8D8;
+            color: #888;
           }
         }
       }
@@ -70,8 +137,3 @@ body {
 .btn {
   @include button;
 }
-// section {
-//   @include outer-container;
-//   aside { @include span-columns(3); }
-//   article { @include span-columns(9); }
-// }
