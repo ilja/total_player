@@ -15,11 +15,6 @@
       <%= link_to(fa_icon('pause'), play_pause_path(current_directory: @current_directory), class: 'btn') %>
     <% end %>
     <%= link_to(fa_icon('step-forward'), next_path(current_directory: @current_directory), class: 'btn') %>
-
-    <audio id="player" controls>
-      <source src="http://quittheprogram.org:8000/mpd.ogg" type="audio/ogg" />
-      <em>Sorry, your browser doesn't support HTML5 audio.</em>
-    </audio>
   </div>
 
 

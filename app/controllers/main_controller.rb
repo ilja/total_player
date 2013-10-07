@@ -25,7 +25,7 @@ class MainController < ApplicationController
 
   def change_directory
 
-    @current_directory = params[:path]
+    @current_directory = params.fetch(:path, "")
     @parent = @current_directory.rpartition('/')[0]
 #binding.pry
 
