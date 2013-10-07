@@ -9,12 +9,12 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require font-awesome
  *= require_tree .
  */
 
 @import "bourbon";
 @import "neat";
-@import "font-awesome";
 
 @import url(http://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
@@ -57,6 +57,10 @@ a:visited {
       a:hover { text-decoration: none; }
       .btn {
         @include button(#80A6CD);
+      }
+
+      #player {
+        float: right;
       }
     }
 
