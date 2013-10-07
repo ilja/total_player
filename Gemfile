@@ -31,6 +31,7 @@ gem 'ruby-mpd'
 
 gem 'neat'
 gem 'font-awesome-rails'
+gem 'source-sans-pro-rails'
 
 gem 'rack-mini-profiler'
 
