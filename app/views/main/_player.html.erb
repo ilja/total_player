@@ -6,23 +6,30 @@
       nothing.
   <% end %>
 
+  <div class="user-info">
+    <% if current_user %>
+        <%= current_user.email %> | <%= link_to 'log out', logout_path, :method => :delete %>
+    <% else %>
+        <a href="/auth/identity">log in</a>
+    <% end %>
+  </div>
+
   <hr>
   <div class="play-controls">
     <%= link_to(fa_icon('step-backward'), previous_path(current_directory: @current_directory), class: 'btn') %>
     <% if @paused %>
-      <%= link_to(fa_icon('play'), play_pause_path(current_directory: @current_directory), class: 'btn') %>
+        <%= link_to(fa_icon('play'), play_pause_path(current_directory: @current_directory), class: 'btn') %>
     <% else %>
-      <%= link_to(fa_icon('pause'), play_pause_path(current_directory: @current_directory), class: 'btn') %>
+        <%= link_to(fa_icon('pause'), play_pause_path(current_directory: @current_directory), class: 'btn') %>
     <% end %>
     <%= link_to(fa_icon('step-forward'), next_path(current_directory: @current_directory), class: 'btn') %>
   </div>
 
 
-
   <!--<div>-->
-    <!--<button onclick="document.getElementById('player').play()">Play</button>-->
-    <!--<button onclick="document.getElementById('player').pause()">Pause</button>-->
-    <!--<button onclick="document.getElementById('player').volume += 0.1">Vol+ </button>-->
-    <!--<button onclick="document.getElementById('player').volume -= 0.1">Vol- </button>-->
+  <!--<button onclick="document.getElementById('player').play()">Play</button>-->
+  <!--<button onclick="document.getElementById('player').pause()">Pause</button>-->
+  <!--<button onclick="document.getElementById('player').volume += 0.1">Vol+ </button>-->
+  <!--<button onclick="document.getElementById('player').volume -= 0.1">Vol- </button>-->
   <!--</div>-->
 </div>

@@ -5,6 +5,10 @@ TotalPlayer::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'main#index'
 
+  post '/auth/:provider/callback', to: 'sessions#create'
+  get '/auth/failure', to: 'sessions#failure'
+  delete '/logout', to: 'sessions#destroy', as: 'logout'
+
   get 'framed' => 'framed#index'
 
   # Example of regular route:

@@ -1,6 +1,7 @@
 require 'set'
 
 class MainController < ApplicationController
+  include RequiresAuthentication
 
   before_action :get_playlist
   before_action :get_current_song

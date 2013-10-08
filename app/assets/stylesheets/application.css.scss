@@ -50,6 +50,10 @@ a:visited {
     $visual-grid: true;
     //background: lightblue;
 
+    .user-info {
+      float: right;
+    }
+    
     .play-controls {
       padding: 2px 0 10px 0;
       a { color: white; }
