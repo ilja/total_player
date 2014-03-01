@@ -3,7 +3,7 @@
 </div>
 <table>
   <% @queue.each do |song| %>
-      <tr class="playlist-row <%= @current_song.id == song.id ? 'active' : '' %>" data-song-id="<%= song.id %>">
+      <tr class="playlist-row <%= @current_song && @current_song.id == song.id ? 'active' : '' %>" data-song-id="<%= song.id %>">
         <td class="artist"><%= song.artist %></td>
         <td class="title"><%= song.title %></td>
         <td class="actions"><%= link_to 'play now', play_now_path(position: song.pos, current_directory: @current_directory) %></td>
