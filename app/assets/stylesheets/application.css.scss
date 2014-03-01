@@ -44,11 +44,15 @@ a:visited {
 }
 
 .container {
-    @include outer-container;
+  @include outer-container;
+  position: relative;
+
   .main {
     @include fill-parent;
     $visual-grid: true;
     //background: lightblue;
+    position: absolute;
+    padding-bottom: 10px;
 
     .user-info {
       float: right;
@@ -106,6 +110,8 @@ a:visited {
     }
     .playlist {
       @include span-columns(6);
+      position: sticky;
+      top: 10px;
       background: #eee;
       padding:3px;
 
