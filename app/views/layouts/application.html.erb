@@ -1,7 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TotalPlayer</title>
+    <title>
+      <% if @current_song %>
+        TotalPlayer: <%= @current_song.artist %> - <%= @current_song.title %>
+      <% else %>
+        TotalPlayer
+      <% end %>
+    </title>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= csrf_meta_tags %>
   </head>

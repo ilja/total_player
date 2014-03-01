@@ -10,6 +10,7 @@ MessageBus.subscribe("/channel", function(data){
     $('.playlist-row').removeClass('active');
     $(row).addClass('active');
     $('#now-playing').html(json.artist + ' - ' + json.title);
+    document.title = 'TotalPlayer: ' + json.artist + ' - ' + json.title;
   }
   else {
     console.log('Unknown event: ' + json);
