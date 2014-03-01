@@ -53,7 +53,7 @@ a:visited {
     .user-info {
       float: right;
     }
-    
+
     .play-controls {
       padding: 2px 0 10px 0;
       a { color: white; }
@@ -134,6 +134,10 @@ a:visited {
             border-top: 1px solid #D8D8D8;
             color: #888;
           }
+        }
+
+        .active {
+          background: #eee;
         }
       }
     }

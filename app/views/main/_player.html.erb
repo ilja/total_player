@@ -1,7 +1,9 @@
 <div>
   Now playing:
   <% if @current_song %>
+    <span id="now-playing">
       <%= @current_song.artist %> - <%= @current_song.title %>
+    </span>
   <% else %>
       nothing.
   <% end %>

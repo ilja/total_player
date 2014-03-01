@@ -29,6 +29,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'ruby-mpd'
 
+gem 'message_bus'
+
 gem 'neat'
 gem 'font-awesome-rails'
 gem 'source-sans-pro-rails'
