@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.0.rc1'
+gem 'rails', '4.1.0.rc2'
 
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
@@ -36,6 +36,8 @@ gem 'font-awesome-rails'
 gem 'source-sans-pro-rails'
 
 gem 'rack-mini-profiler'
+
+gem 'foreman'
 
 gem 'omniauth-identity'
 gem 'bcrypt-ruby', '~> 3.0.0'
